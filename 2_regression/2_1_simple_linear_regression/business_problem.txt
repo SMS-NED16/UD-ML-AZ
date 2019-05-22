@@ -1,0 +1,13 @@
+Business Problem
+- Two columns in our dataset: years of experience and salaries for employees
+- We've been hired to find if a correlation exists between years of experience and salary
+- Want to quantify the extent to which years of experience should be renumerated 
+- Maybe they just have a rough set of guidelines for assigning salaries and want
+us to derive a model.
+- Business value
+	- if the company doesn't have a set of rules to set salaries, they
+	can use this model i.e. if this is how you've been setting salaries so far, this 
+	model will tell you how to assign them a new salary that is consistent with your
+	hiring practicies
+	- what if the company receives an employee with 20/30 years experience:
+	unprecedented. Model will help them decide how to pay.

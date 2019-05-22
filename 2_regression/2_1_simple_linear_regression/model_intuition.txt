@@ -1,0 +1,33 @@
+SIMPLE LINEAR REGRESSION
+- Formula is y = b0 + b1 * x1
+	- y: the dependent variable, value depends on the variation of another variable
+		- salary's variation with years of experience
+		- student's grade with time spent on studying
+	- x1: the independent variable
+		- may directly or indirectly affect the value of the dependent variable
+	- b1: how a unit change in the independent variable affects the value of y
+	It is a parameter that connects the independent variable's change to the that
+	of the dependent variable
+	- b0: another parameter, but this is an intercept. The value of the dependent
+	variable in the absence of any independent factors.
+
+
+EXAMPLE 1 - OUR BUSINESS PROBLEM
+In our case, the model is 
+	Salary = b0 + b1 * Experience
+
+This is a line that best fits/approximates our experience/salary data. 
+- b0 is the y intercept: the point where the line crosses the vertical axis.
+This is the salary for a new employee or employee with 0 years of experience.
+This is the base salary: the minimum salary that will be offered to a new employee.
+-b1 is the slope of the line: the steeper the line, the greater the increase in 
+salary for every additional year of experience. 
+
+
+LINE OF BEST FIT
+- How to find the trendline/line of best fit?
+- Residuals: the difference between the actual and predicted salaries for a given
+value of years of experience.
+- We find the line that minimise the square of sum of residuals: minimise (y - y')^2
+- This means we need to find the values of b0 an b1 which does this.
+- This is called ORDINARY LEAST SQUARES.
