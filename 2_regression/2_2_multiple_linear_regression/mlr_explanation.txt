@@ -1,0 +1,125 @@
+MULTIPLE LINEAR REGRESSION - EXPLANATION
+
+- Similar to simple linear regression in that we want to create a model that predicts
+a continuous output value for the dependent variable.
+- However, this time we want to use multiple features/multiple inputs in the model. 
+- There is no longer a simple one-to-one mapping between a single input and a single O/P.
+- Instead, there are multiple inputs and each will have their own parameter to encode
+how a unit increase in that input is related to variation in the depnendent variable.
+- General form is
+	y = b0 + b1 * x1 + b2 * x2 + b3 * x3 + ... + bn * xn
+- Where n is the number of variables
+- In the case of our business problem, 
+	Profit = b0 + b1 * R_D_Expenditure + b2 * Admin_Expenditure + ...
+	b3 * Marketing_Expenditure + b4 * State 
+
+
+ASSUMPTIONS OF LINEAR REGRESSION
+Must check that the following assumptions are true before we build a LM model.
+- Linearity
+- Homoscedasticity
+- Multivariate normality
+- Independence of errors
+- Lack of multicollinearity
+
+
+DUMMY VARIABLES
+- In our dataset, we have the profit, admin spend, marketing spend, and r&d spend
+- We also have the state in which the company is based. 
+- We want to see if there is a correlation between profit and any of the features.
+- We would start building our model as follows
+
+	Profit = b0 + b1 * R_D_Expenditure + b2 * Admin_Expenditure + ...
+	b3 * Marketing_Expenditure + b4 * State 
+
+- But what should we place in place of our state variable? We will have to 
+map our categorical state variable to a numerical dummy variable.
+- Will have to create dummy variables for each of the states: in this case, there
+are two states/categories (NY, CA). 
+- Create a new column for each category of the state. One column for NY, one for CA.
+- For each entry in the dataset, whenever the state is NY, place a 1 in the NY col
+and 0 in the CA col.
+- This way we've replaced the categorical state variable with 2 numerical dummy variables.
+- The new model is now
+	Profit = b0 + b1 * R_D_Expenditure + b2 * Admin_Expenditure + ...
+	b3 * Marketing_Expenditure + b4 * D1
+	D1 = 1 if State == NY, 0 if State == CA
+- Also, we're adding a coefficient for NY (the dummy variable is 1) but the coefficient
+is eliminated for CA (if dummy variable is 0.) 
+- This may suggest that our model "favours" NY, but this is not the case. The california
+coefficient is, by default, included in the b0 term. 
+- When D1 becomes 1, it represents the "difference" between CA and NY and changes the 
+model's value.
+
+
+DUMMY VARIABLE TRAP
+- Even though we created two dummy variables (one for CA, for NY) we don't use both in
+our model.
+- Including dummy variables for each value of a categorical variable is called a dummy variable trap.
+- This is bad because we're duplicating a variable. In the case of our categorical variable
+(state), D1 = 1 if NY, 0 if CA, and D2 = 1 if CA, 0 if NY. 
+- Hence D2 = 1 - D1
+- This is called multicollinearity.
+- Because of this, the model will not be able to differentiate between the effects of
+D1 and D2.
+- Cannot have constant b0 and coefficients for ALL dummy variables in the model.
+- If there are M classes of the categorical variable, only include (M-1) dummy variables.
+- Different set of dummy variables for each categorical column. 
+
+
+BUILDING MODELS STEP-BY-STEP
+- When we have far too many potential features/predictors for a model, we may need to 
+select a subset of features.
+- WHY?
+	- Garbage In, Garbage Out: too much information? Model will not be able to predict well.
+	- Interpretability: We will need to explain and interpret our models for our executives. 1000s of variables are not easy to explain to C-level executives.
+- Subset Selection Methods
+	1. All-in
+	- Use all variables in the dataset
+	- Do this when you have domain knowledge that suggests all variables are relevant.
+	- When a senior team/business framework/requirement necessitates use of all variables.
+	- Use this in preparation for backward elimination
+
+	2. Backward Elimination
+		1. Select a significance level for a feature to stay in the model (e.g. SL = 0.05)
+		2. Fit the full model with all possible predictors.
+		3. Consider the predictor with the highest p-value.
+				if p > SL, then go to step 4
+		4. Remove the predictor from the model
+		5. Fit the model without this variable*
+		*Removing the feature from the dataset is not enough. Need to recreate
+		model with new set of features because coefficients will have to be
+		calculated again.
+		6. Return to step 3 and iterate until variable with highest p value is 
+		still less than SL.
+		FIN. Model is ready
+
+	3. Forward Selection
+		1. Select a significance level for a feature to enter the model (SL = 0.05)
+		2. Fit ALL POSSIBLE simple regression models (one for each feature)
+		and select the one with the lowest P value.
+		3. Keep this variable and fit all possible models with one extra predictor
+		added to the one(s) you already have. 
+		4. Consider the model with a new predictor that has the lowest P value. 
+		If P < SL, go to step 3. Otherwise, FN.
+		FIN. Keep the previous model.
+
+
+	4. Bidirectional Elimination
+		1. Select a significance level to enter and another to stay SL_ENTER = 0.05, SL_STAY = 0.05
+		2. Perform the next step of forward selection (new variables must have P < SL_ENTER to enter)
+		3. Perform ALL the steps of backward selection (old variables must have P < SL_STAY to stay)
+		4. Iterate between 2 and 3 until no more variables can be added to or removed from the model.
+		FIN. Model is ready.
+
+
+	5. Score Comparison
+		1. Select a criterion of goodness of fit (Akaike criterion)
+		2. Contruct all possible regression models 2^N - 1 combinations
+		3. Select the one with the best criterion.
+
+	Impractical. Far too many features in real world data for this to be efficient.
+
+- 2, 3, and 4 are commonly referred to stepwise regression. Sometimes people will
+consider only bidirectional elimination as stepwise regression. It is the most
+general form of subset selection, and technically can be modified to form 2 or 3.

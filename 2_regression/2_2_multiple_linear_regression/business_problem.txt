@@ -1,0 +1,13 @@
+BUSINESS PROBLEM - MULTIPLE LINEAR REGRESSION
+
+- The dataset is called "50 Startups"
+- We have venture capitalist funding data for 50 real-world startups.
+- The data consists of profit, loss, and expenditure for each startup.
+- Expenditure classified into admin, marketing spending, R&D.
+- Also have the state: a categorical variable. 
+- The target variable is the profit: given a set of expenditure data and 
+the state in which a startup is based, we want to predict the profit/loss
+for that startup.
+- Business Value: the venture capital firm can use our model to predict the 
+expected profit for a new startup and then decide whether or not it is worth financing.
+- We want to find the relationship between profit and MULTIPLE expenditure classes.
