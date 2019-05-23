@@ -1,0 +1,30 @@
+POLYNOMIAL REGRESSION
+
+So far we've discussed simple and multiple linear regression. A third type is polynomial 
+regression.
+
+Polynomial regression model looks like this
+y = b0 + (b1 * x1) + (b2 * x1^2) + ... + (bn * x1^n)
+
+The power of the independent variable changes from 1 to n. So this is no longer a linear
+function. It is a non-linear or polynomial function.
+
+If the data is roughly linear, we can use simple linear regression. But if the data is 
+non linear (parabolic, cubic, etc.) we can't use a linear model - it won't fit the data
+well. We need to use a non-linear function of the same independent variable to account
+for the non-linearity in the data e.g y = b0 + (b1 * x1) + (b2 * x1^2)
+
+Poly regressions are used to describe how diseases spread across populations.
+
+WHY IS IT STILL CALLED A LINEAR MODEL (POLYNOMIAL LINEAR REGRESSION)?
+The linear in the name of the model does not refer to the independent variable. It refers
+to the parameters or coefficients. Whether or not the function is non-linear in terms of 
+the independent variable, what matters is if the function can be expressed as a linear
+combination of the coefficients/parameters.
+
+Even in y = b0 + (b1 * x1) + (b2 * x1^2) + ... + (bn * x1^n), the coefficients
+b0, b1, b2, ..., bn are still raised to the first pwoer. So the output is till a linear
+combination of the input features, even if these features are non-linear.
+
+A NON-LINEAR polynomial regression model would look like
+y = b0 + (b1^2 * x1) + (b2^# * x1^2) + ... + (bn^m* x1^n)
