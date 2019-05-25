@@ -1,0 +1,77 @@
+SUPPORT VECTOR REGRESSION
+
+- SVR has parallels with linear regression but also does things differently.
+- A type of support vector machine that supports linear and non-linear regression.
+- We can consider two classes as houses/buildings on adjacent sides of a path. 
+- Instead of trying to fit the largest possible street between the two classes while limiting
+margin violations, SVR tries to fit as many instances as possible on the street while limiting 
+margin violations. 
+- The width of the street is controlled by a hyperparameter called Epsilon.
+
+- SVR performs linear regression in higher dimensional space.
+	- If each data point in the set refers to its own dimension.
+	- When we evaluate the kernel between a test point and the point in the training set,
+	the resulting value gives us the coordinate of your test point in that dimensions.
+	- The vector we get when we evaluate the test point for all points in the training
+	set is the representation of the test point in the higher dimensional space. 
+	- Once you have that vector you then use it to perform a linear regression.
+	- Gaussian algorithms are very useful for computing a training set and then using 
+	SVR to compute the result.
+
+- What is a Kernel?
+	- In mathematics, a kernel is any function that allows us to efficiently compute a 
+	dot product in a higher dimensional space.
+	- The idea is that whether we perform dot products in 1 dimensional space or 
+	100 dimensional space, the answer is always a real number.
+	- However, it is computationally more expensive to first map a 1 dimensional
+	dataset to its 100 dimensional counterpart and to then compute a dot product.
+	- This is important because sometimes data is not linearly separable in the 
+	1 or 2 dimensional space but is easily linearly separable by a hyperplane in
+	a higher dimensional space.
+	- We have a lot of linear classification algorithms that can thus be applied to 
+	non-linear data if it is transformed to high dimensional space.
+	- This is precisely what kernels facilitate: the efficient computation of a 
+	similarity index or other scalar that can help find a non-linear decision boundary
+	in low dimensional space by transforming data to high-dimensional space using a linear
+	decision boundary calculation algorithm.
+	- This is equivalent to calculating a dot product in low dimensional space and raising
+	it to a specific power. 
+
+- REQUIREMENTS FOR SVR
+	- Requires a training set which covers the domain of interest and is accompanied by 
+	solutions on that domain.
+	- The work of a support vector machine (SVM) is to approximat the function we used 
+	to generate the training set F(X) = Y.
+	- In a classification problem the vector X is used to define a hyperplane that 
+	distinguishes two different classes in your solution.
+	- The vectors are then used to perform linear regression. The vectors closest to the
+	test point are referred to as support vectors. We can evaluate our function anywhere so
+	our vectors could be closest to our test evaluation location.
+
+- BUILDING A SUPPORT VECTOR REGRESSION MODEL
+	- Collect a training set T = (X, Y)
+	- Choose a kernel and its parameters as well as any regularization needed.
+	- Form a correlation matrix K.
+	- Train your machine, exactly or appropriately, to get contradiction coeffs \alpha = {\alpha_i}
+	- Use these coeffs to create your estimator f(X, \alpha, x*) = y*
+
+- CHOOSING A KERNEL
+	- One of the most widely used kernels for SVR is the Gaussian kernal.
+	- Regularization is also important because they help in smoothing out the noise/randomness
+	in the dataset.
+
+Ka = Y where
+K = is the correlation matrix, a is the set of unknowns we need to solve for, Y is the vector of values 
+corresponding to our training set.
+
+To find a, a = K^-1 Y
+
+- Once the a parameters are known we use the coeffs found during optimisation to find the 
+correlation fector for a test point x* 
+
+INTUITION BEHIND SVR
+- Has a different regressional goal compared to linear regression.
+- In linear regression we are trying to minimise the error between prediction and data.
+- In SVR our goal is make sure the errors do not exceed the threshold. 
+- It classifies all predictors into those that pass through error bars and those who don't.
+- The lines that don't pass through the error bars are those that exceed th eerror threshold. 
