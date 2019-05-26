@@ -1,0 +1,23 @@
+RANDOM FOREST REGRESSION
+
+- In the previous section we used a single decision tree to predict the salary of an employee
+based on his/her employee level.
+- This was a regression problem that was solved with a single decision tree.
+- Random forest regression leverages the power of multiple decision trees to predict a continuous
+value. 
+- It belongs to a class of methods called Ensemble Learning.
+- Using multiple instances of the same algorithm and combine their results to make a 
+prediction that is more accurate/powerful than the original algorithm on its own.
+
+STEPS
+- Pick at random K data points from the training set. 
+- Build a decision tree associated with these K data points. The decision tree is fit using
+a subset of the training set. 
+- Choose the number `Ntree` of trees you want to build and repeat steps 1 -> 2 for each.
+- For a new data point, make each of your Ntree trees predict the value of Y for the data
+point in question and assign the new data point the average of all predicted Y values.
+
+This improves the accuracy of our predictions by minimising the variance associated with each
+tree. This is true of all ensemble methods: they are more stable than other algorithms because
+a change in the dataset does not substantially affect the result because it hasn't been 
+decided by a single tree.
