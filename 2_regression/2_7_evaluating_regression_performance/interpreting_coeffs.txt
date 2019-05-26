@@ -1,0 +1,22 @@
+INTEPRETING MULTIPLE LINEAR REGRESSION COEFFICIENTS
+
+SIGN
+- If the sign of the coefficient is positive, the associated independent variable
+is positively correlated with the dependent variable. 
+- E.g. increasing this variable will increase the dependent variable, and decreasing
+the independent variable will decrease the dependent variable.
+- If the sign is -ive, then the two are antagonistically related: increasing the 
+independent variable decreases the dependent variable.
+
+MAGNITUDE
+- Trickier than sign, not as straightforward.
+- This is because units of the independent variable are also involved.
+- E.g. if marketing expenditure is 100 while R.D Expenditure is 12, the knee-jerk
+reaction would be to assume marketing expenditure has a greater impact on the dependent
+variable than the R.D expenditure.
+- However, what if marketing expenditure was defined in terms of cents and R.D expenditure 
+in terms of 1000s of dollars? 
+- This would mean that a per unit increase in R.D expenditure would result in a 12000 
+dollar increase in sales, whereas a similar per unit expenditure in marketing expenditure
+would only lead to 100 cent increase in sales.
+- The increases are based on the assumption that all other variables are kept constant.
