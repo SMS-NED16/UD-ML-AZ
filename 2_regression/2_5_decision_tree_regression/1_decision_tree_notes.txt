@@ -1,0 +1,55 @@
+DECISION TREE REGRESSION
+
+- CART - Classification and Regression Trees - two types of tree-based methods
+- In this section, we're focusing on regression trees.
+- Regression trees are a bit more complex than classification trees. 
+- Consider a scatterplot of a two independent variables X1, X2 to predict a third variable y
+- y is the third dimension (z axis). 
+- We first need to build the decision tree with the scatter plot and then worry about y.
+- Decision trees with a single variable can be visualized with 2 dimensions but it doesn't really
+drive the point home; easier to understand decision tree models in two independent variables.
+- Let's consider the independent variables for now. 
+- When we use a regression tree algorithm, we will split the scatterplot into segments e.g
+	- at X1 = 20
+	- at X2 = 170
+	- at X3 = 200
+	- at X4 = 40
+- How and where these splits are made depends on the idea of mathematical entropy - a complex
+mathematical concept. 
+- When we perform a split, we increase the amount of information we have about our points. It
+adds some more information about how we want to group our point. 
+- The algorithm knows there is a minimum amount of permissible information that can be added
+per split, so it knows when to stop further splits when each additional split adds, say, less
+than 5% additional information.
+- Need to study more about information entropy. 
+- So the algorithm basically functions by dividing the dataset into sections called leaves. 
+The final/smallest sections are called terminal leaves.
+- Our focus will be on the practical applications of this algorithm.
+
+
+SPLIT WALKTHROUGH - Define leaves, calculate mean of all points in leaf
+- Our first split is at X1 = 20
+	- X1 < 20
+		- Third Split is at X2 = 200 only for points where X1 < 20
+			- X2 < 200 -> 300.5
+			- X2 > 200 -> 65.7
+	- X1 > 20
+		- Second Split is at X2 = 170 only for points where X1 > 20
+			- X2 < 170 
+				- Fourth split happens when X3 = 40 only for points where X1 > 20, X2 < 170
+					- X4 < 40 -> 64.1
+					- X4 > 40 -> 0.7
+			- X2 > 170 -> 1023
+
+- What do we actually populate in these boxes? 
+- We need to check how are we going to predict the value of y for a new data point added to the scatterplot.
+- E.g. X1 = 30, X2 = 50 is a new plot. X1 < 40, X1 > 20, X2 < 170 -> Split 4 terminal leaf.
+- We take the average of y for each data point in the terminal leaf that our new data point belongs to.
+- The value of y for this data point is now equal to the average value of y for all data points in that
+terminal leaf.
+- So this is a regression problem that involves splitting a data set into optimal terminal leaves/sections
+and then finding the predicted continuous value for a new point in that particular leaf.
+- We've split our data set into terminal leaves which can give more accurate predictions for a new 
+element. If we had just used the average of all data points for a new point, regardless of where this
+point was placed, then it wouldn't be very accurate: the value of a new point would be independent of
+its position. 
