@@ -1,0 +1,27 @@
+R SQUARED ERROR 
+
+- A performance metric that can be used to assess accuracy/error of a regression formulae.
+- Recall from linear regression that the Residual Sum of Squares (y_i - y_i^)^2 was the sum of
+squares of difference between actual and predicted values.
+	SS_residual = SUM(yi - yi^)^2
+- The line with the minimum residual sum of squares was the best regression model.
+- If we draw the average line across the dataset and square the error between the 
+average line and the individual data point, the sum of these errors will be the TOTAL SUM OF SQUARES.
+	SS_total = SUM(yi - y_avg)^2
+- R^2 is thus defined as 
+	R^2 = 1 - SS_residual/SS_total
+
+WHAT DOES THIS MEAN?
+- There will always be a total sum of squares as it is highly unlikely that every data point
+will be the same as the average of the dataset.
+- When we're making a regression model, our goal is to minimise the SS_res.
+- Technically, the y_avg line is also a regression line, albeit not a very good one. 
+- So R^2 tells us how good the regression model/RSS-derived line is compared to the y_avg
+line.
+- We try to minimise SS_res, so the better the regression line, the smaller the quantity
+SS_res/SS_total, and the closer the R2 value is to 1.
+- So the closer the R^2 statistic is to 1, the better the regression model.
+- R^2 can be negative: if the SS_res fits the data worse than the average line (e.g. a downward
+line for datset with an updward trend). 
+- 
+

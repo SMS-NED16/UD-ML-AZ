@@ -1,0 +1,49 @@
+ADJUSTED R SQUARED ERROR 
+
+- We know that R^2 = 1 - SS_res/SS_total. SS_res is the sum of squares of residuals or 
+difference between data points and best regression line. SS_total is the sum of squares
+of distance between average line and data points.
+
+- R^2 also apply to multiple linear regression models. The same method of finding sum of
+squares of residuals and finding the line that minimises this sum is applicable to 
+multiple regression.
+
+- So R^2 is technically a goodness of fit parameter (greater is better)
+
+- However, what happens when we add a third parameter to the model? 
+	y = b0 + b1 * x1 + b2 * x2 + b3 * x3 
+
+- We can check if the R^2 increased, decreased, or stayed the same after adding the third param.
+
+- The problem is that R^2 will never decrease with additional parameters. Adding a new variable
+to the model could help minimise the sum of squares of residuals SS_res, which will result in
+R^2 closer to 1. This is because SS_total does not change with additional variables.
+
+- Very rarely (worst case scenario), the minimisation process eliminates the coefficient for the
+new variable from computation of R^2 and the R^2 statistic stays the same. 
+
+- So R^2 will never decrease with addition of variables. There is always a slight random correlation
+with the dependent variable and the new independent variable added to the model. 
+
+- This means R^2 on its own can never tell us exactly if an additional feature is helping the model
+or reducing its accuracy: because of random association between the dependent and newly added independent
+variable, R^2 will always increase (approach closer to 1) with every additional variable, even if the 
+variable has no bearing on the actual model and is only randomly associated with the output. This 
+can affect model accuracy, simplicity, efficiency, and interpretability as the increase in R^2 
+gives the impression that the model's goodness of fit has improved. 
+
+- This is where adjusted R^2 comes in 
+
+	ADJ R^2 = 1 - (1 - R^2) * (n - 1)/(n-p-1)
+p = number of regressors
+n = sample size
+
+- It penalizes models that add independent variables that don't help the model.
+- When p increases, the denominaor n - p - 1 increases, so the ratio (n-1)/(n-p-1) increases,
+which results in the adjusted R^2 error decreasing further away from 1. 
+- When normal R^2 error decreases, the (1-R^2)*(n-1)/(n-p-1) also increases, so the Adj R^2 decreases.
+- There is a tradeoff between p and R^2. 
+- If we add an insignificant parameter to the model, the R^2 statistic has an insignificant increase
+compared to (n-1)/(n - p - 1) which will drive adjusted R^2 down.
+- If new variable helps the model a lot, increase in R^2 will be substantial and will exceed the 
+penalty incurred by addition of the new variable.
