@@ -23,5 +23,4 @@ SS_res/SS_total, and the closer the R2 value is to 1.
 - So the closer the R^2 statistic is to 1, the better the regression model.
 - R^2 can be negative: if the SS_res fits the data worse than the average line (e.g. a downward
 line for datset with an updward trend). 
-- 
 
