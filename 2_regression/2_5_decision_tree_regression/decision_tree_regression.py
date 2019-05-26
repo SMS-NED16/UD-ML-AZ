@@ -72,7 +72,7 @@ plt.xlabel('Employee Level'); plt.ylabel('Salary'); plt.grid(True);
 plt.title('Salary vs Employee Level - High Resolution Decision Tree')
 
 
-"""Now the decision tree prediction visualization makes much more sense.
+"""Now the decision tree prediction avisualization makes much more sense.
 The decision tree is assigning the same average value of salary to each
 employee level in the same interval. It has divided the domain into
 clearly defined domains (0.5 - 1.5, 1.5 - 2.5, and so on)"""
