@@ -28,4 +28,4 @@
 - SVMs are different and focus on outliers: they look at apples that are very much like oranges and likewise at oranges that are more like apples. 
 - These outliers becomes the **support vectors**: they are very close to the Maximum Margin Hyperplane.
 - SVMs look at the extreme cases that are closer to the decision boundary and uses them to make classifications.
-- This is why SVMs tend to perform much better than other ML algorithms.
+- This is why SVMs tend to perform much better than other ML algorithms.	
