@@ -23,7 +23,7 @@ X = dataset.iloc[:, :2].values
 y = dataset.ilo[:, -1].values
 
 # Train/test split
-from sklearn.preprocessing import train_test_split
+from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
 # Feature Scaling - only for features because target is 0/1
