@@ -31,3 +31,21 @@ D = Actual 1, Predicted 1 => True Positive
 Some important metrics
 - **Accuracy Rate AR** - Correct/Total = (A+D)/Total
 - **Error Rate ER** - Incorrect/Totla = (B+C)/Total
+
+# Accuracy Paradox
+- Consider the following confusion matrix
+		PREDICTED |		0	 | 		1	 |
+		ACTUAL    | 
+		  0		  |	  9.7k   |	   150   |
+		  1  	  |		50 	 |     100   |
+
+- Accuracy Rate = (9.7k + 100)/10k = 98%
+- Assume that we modified our algorithm so that it only predicts 0 for all examples. 
+		PREDICTED |		0	 | 		1	 |
+		ACTUAL    | 
+		  0		  |	    9850 |	   0     |
+		  1  	  |		150  |     0     |
+- Now the accuracy is 9850/10k = 98.5
+- The accuracy rate increased by 0.5%, even though we basically stopped using the model.
+- We're not really applying any kind of model to the dataset and are still getting an increased accuracy.
+- This is the **Accuracy Paradox**.
