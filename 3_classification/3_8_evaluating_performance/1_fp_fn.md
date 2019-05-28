@@ -14,3 +14,20 @@ The same applise to observation 3: predicted was 1 but actual was 0.
 ## Types of Errors
 - Type 1 Error: False Positive - Actual 0, Predicted 1
 - Type 2 Error: False Negative - Actual 1, Predicted 0
+
+# Confusion Matrix
+A tool to help us summarise True Positives, True Negatives, False Positives, and False Negatives in the results of a classification model.
+
+ 		PREDICTED |		0	 | 		1	 |
+		ACTUAL    | 
+		  0				A  			B
+		  1  			C 			D
+
+A = Actual 0, Predicted 0 => True Negative
+B = Actual 0, Predicted 1 => False Negative (Type 2)
+C = Actual 1, Predicted 0 => False Positive (Type 1)
+D = Actual 1, Predicted 1 => True Positive 
+
+Some important metrics
+- **Accuracy Rate AR** - Correct/Total = (A+D)/Total
+- **Error Rate ER** - Incorrect/Totla = (B+C)/Total
