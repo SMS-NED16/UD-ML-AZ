@@ -54,4 +54,3 @@
 	- This line represents the **largest distance**.
 	- Recommended approach: take a threshold that will cross that largest distance and then use that threshold to calculate the number of clusters (using lines that cross the new horizontal line).
 
-
