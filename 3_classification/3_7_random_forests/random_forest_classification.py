@@ -73,5 +73,4 @@ has been reduced but not substantially.
 The conclusion? Gaussian Kernel SVM and Naive Bayes classifer are probably
 the best classifiers for this data. They have created a smooth classification
 boundary and don't tend to overfit the training data.
-
 """
