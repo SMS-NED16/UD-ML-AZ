@@ -72,4 +72,28 @@ Some important metrics
 **A bad model will be closer to random, a poor model will be between random and CAP, a good model will follow the CAP curve or be closer to the ideal curve.**
 
 ## CAP is not the same as ROC
-ROC (Receiver Operating Characteristic) curve has to do with specificity and selectivity (metrics that deal with Type 1 and Type 2 errors). 
+ROC (Receiver Operating Characteristic) curve has to do with specificity and selectivity (metrics that deal with Type 1 and Type 2 errors).  
+
+# CAP Analysis
+- Three important lines
+	- Random Model
+	- Test Model (different lines for different models)
+	- Perfect Model
+- How do we analyse this?
+- The closer the model is to the Perfect Model, the better.
+- How do we quantify this?
+	- Calculate area b/w ideal model and test model (a_p)
+	- Calculate area b/w test model and random model (a_r)
+	- Calculate Accuracy Ratio A_R = a_p/a_r.
+- The closer A_R is to 1, the better the model. The closer it is to 0, the worse the model.
+- Usually difficult to calculate this without statistical packages.
+- To assess model quality using CAP by inspection, look at the value of the test model prediction X% that corresponds to 50% mark on the independent axis.
+- The closer this value is to 100%, the better the model.
+- **Kirill's Rule of Thumb**
+	- If X < 60%, model is usesless and should be discarded.
+	- If 60% < X < 70%, the model is poor.
+	- If 70% < X < 80%, the model is good. It can actually be used to create business value.
+	- If 80% < X < 90%, the model is great. T
+	- If X > 90%, it is too good to be true. 
+		- There may be overfitting. The model is fit far too well on that specific dataset and relies on anomalies of that dataset. Won't generalize well IRL.
+		- The data may contain a forward looking variable that allows the model to "look into the future i.e. a piece of information that wouldn't be available to a realistic, real-world case. 
