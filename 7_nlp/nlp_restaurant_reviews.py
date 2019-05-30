@@ -15,3 +15,19 @@ import pandas as pd
 dataset = pd.read_csv('Restaurant_Reviews.tsv', sep="\t", quoting=3)
 
 
+"""---------------------------Cleaning the Texts------------------------------"""
+"""To maximise efficiency of our NLP algorithm and create a small, relevant bag of
+words, we will
+1. Remove all punctuation from reviews.
+2. Remove all words such as 'the', 'a', 'it, that don't add context to the review.
+3. Remove all numbers.
+4. Perform Stemming - extract 'love' from 'loved', 'loving', 'lovely' - smaller bag
+"""
+
+# Test cleaning procedure on first review
+import re                               # regex library
+review = dataset['Review'][0]           # extract first review for testing
+review = re.sub('[^a-zA-Z]',            # regex that says don't remove lowercase/uppercase letters
+                ' ',                    # removed characters will be replaced by space
+                review)                 # string that we want to clean
+
