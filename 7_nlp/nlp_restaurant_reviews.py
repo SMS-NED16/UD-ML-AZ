@@ -19,9 +19,9 @@ dataset = pd.read_csv('Restaurant_Reviews.tsv', sep="\t", quoting=3)
 """To maximise efficiency of our NLP algorithm and create a small, relevant bag of
 words, we will
 1. Remove all punctuation from reviews.
-2. Remove all words such as 'the', 'a', 'it, that don't add context to the review.
+2. Remove all stopwords such as 'the', 'a', 'it, that don't add context to the review.
 3. Remove all numbers.
-4. Perform Stemming - extract 'love' from 'loved', 'loving', 'lovely' - smaller bag
+4. Perform Stemming - extract 'love' from 'loved', 'loving', 'lovely' - smaller bag, same info
 """
 
 # Test cleaning procedure on first review
@@ -31,3 +31,17 @@ review = re.sub('[^a-zA-Z]',            # regex that says don't remove lowercase
                 ' ',                    # removed characters will be replaced by space
                 review)                 # string that we want to clean
 
+# Convert all letters in review to lowercase
+review = review.lower()
+
+# Remove all stopwords - 'a', 'it', 'this' - irrelevant to our ML model, sparse matrix
+import nltk                             # Natural Language Toolkit Library
+#nltk.download('stopwords')             # Download list of stopwords built into NLTK
+from nltk.corpus import stopwords       # Import the stopwords for use in this program
+
+# Split the review into a list of individual words
+review = review.split()
+
+# List comprehension to remove any words in review also present in NLTK stopwords
+# `set` ensures that comparison is with unique stopwords only - improves algo speed.
+review = [word for word in review if not word in set(stopwords.words('english'))]
