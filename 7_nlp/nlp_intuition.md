@@ -22,3 +22,9 @@
 - NLTK (we'll be using this to analyse restaurant reviews, lots of copora)
 - SpaCy
 - Stanford LP
+
+## Bag of Words Model
+- A model that is used to preprocess texts to classify before fitting the classification algirithms on the observations containing the text.
+- Involves 2 sections
+	- A vocabulary of known words
+	- A measure of the presence of known words
