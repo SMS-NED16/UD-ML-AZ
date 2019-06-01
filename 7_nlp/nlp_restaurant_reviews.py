@@ -96,3 +96,30 @@ X = count_vectorizer.fit_transform(corpus).toarray()
 
 # Store labels
 y = dataset['Liked'].values
+
+
+"""---------------------------Classification Model----------------------------"""
+# As a rule of thumb, Naive Bayes is a good classifier for NLP problems
+# train/test split
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=0)
+
+# Fitting Naive Bayes to the Training Set
+from sklearn.naive_bayes import GaussianNB
+nb_classifier = GaussianNB()
+nb_classifier.fit(X_train, y_train)
+
+# Make predictions using the test set
+y_pred = nb_classifier.predict(X_test)
+
+# Quantizing performance
+from sklearn.metrics import confusion_matrix, classification_report
+conf_mat_nb = confusion_matrix(y_test, y_pred)
+class_rep_nb = classification_report(y_test, y_pred)
+
+
+"""-------------------------------Interpretation---------------------------------"""
+"""
+Out of 200 reviews, the model made 146 correct predictions and 54 incorrect
+predictions. Hadelin says this may be because we had only 800 reviews to train the
+model, which means the overall result is not that bad."""
