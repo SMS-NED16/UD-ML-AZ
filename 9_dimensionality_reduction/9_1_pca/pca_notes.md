@@ -2,6 +2,7 @@
 
 ## Introduction
 - One of the most commonly used dimensionality reduction algorithms.
+- Is a **feature extraction** technique as opposed to **feature selection** (backward selection, forward selection, bidirectional selection covered in section 2).
 - Used for
 	- Visualization
 	- Feature extraction
@@ -9,6 +10,8 @@
 - Identifies and detects correlation between variables. If two variables are strongly correlated, they are removed from the set of features.
 - This maps or projects the features from a higher dimension to a lower dimension while still maintaining the relevance of the data for prediction/classification.
 - The intuition is to select the variables/features that are responsible for the greatest variance in the output. 
+- This makes PCA an **unsupervised** model: we aren't concerned with the O/P of the dataset.
+- PCA can help us reduce our dataset to the two or threee features that help us visualize the dataset.
 
 ## Steps
 1. Standardize the data.
