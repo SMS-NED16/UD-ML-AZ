@@ -21,4 +21,6 @@
 - Neural networks are partly inspired by the human brain. 
 - A neuron in the human brain can be connected to up to 1000 other neurons through axons/dendrons (outputs/input connections).
 - Neural networks are based on the same concept: they're a mathematical construct in which individual nodes or neurons take some input, transform them, and pass them to other neurons at the output.
-- Neurons in neural nets are arranged in layers. The first layer accepts input (input layer), processes it/transforms it, and passes it along to a series of **hidden** layers 
+- Neurons in neural nets are arranged in layers. The first layer accepts input (input layer), processes it/transforms it, and passes it along to a series of **hidden layers** through interconnections. 
+- A sequence of hidden layers perform similar transformations by passing its outputs to inputs of the next layer until we reach the output layer, which produces a finite number of outputs (depending on the application).
+- The **deep** in deep learning refers to the phenomenon of stacking several such hidden layers between I/O layers. This is called **deep learning** because each additional layer of neurons/hidden layer represents additional depth of the complexity to the transformation performed by the neural network.
