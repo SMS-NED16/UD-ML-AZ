@@ -71,3 +71,21 @@ for i in range(0, len(dataset)):
     
     # append cleaned review to corpus
     corpus.append(review)
+    
+"""-----------------------------Bag of Words Model----------------------------"""
+"""
+Create a new table with 1000 rows (one review per row) and columns are each unique
+word in corpus. Each cell represents how frequently a specific word in the corpus
+appeared in a specific review. As every review won't necessarily contain all words,
+this will likely be a spares table - most cells will be 0. **Sparse Matrix**
+
+The model helps us predict whether a review is positive/negative based on the 
+frequency of each word in our bag of words. Each column corresponding to a specific
+word represents an independent variable. Helps us create a classification model.
+"""
+# tokenizing the reviews - store counts of each unique word in all reviews
+from sklearn.feature_extraction.text import CountVectorizer
+count_vectorizer = CountVectorizer()
+
+# The matrix of tokenized word counts = classification model features
+X = count_vectorizer.fit_transform(corpus).toarray()
