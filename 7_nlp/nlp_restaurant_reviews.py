@@ -53,3 +53,6 @@ port_stemmer = PorterStemmer()                          # instantiate Stemmer ob
 review = [port_stemmer.stem(word) for word in review]   # could also do this in prev list comprehension
 
 # `loved` in the previous list will now become `love` - root word
+
+# Recombine words in review list into a string - words separated by space ' '
+review = ' '.join(review)               # 'wow love place'
