@@ -91,3 +91,19 @@ ann_classifier.compile(
 # So far the ANN has just been instantiated/set up for training. We now need
 # to fit it or optimise it parameters
 ann_classifier.fit(X_train, y_train, batch_size=10, nb_epoch=100)
+
+
+"""----------------------------------TEST ANN------------------------------------"""
+# Make predictions on the test set
+y_pred = ann_classifier.predict(X_test)                 # continuous probabilities
+
+# convert continuous predicted probabilities into Y/N binary classes using threshold
+y_pred = (y_pred > 0.5)                                 # 1/0 now
+
+# evaluae performance
+from sklearn.metrics import classification_report, confusion_matrix
+class_report = classification_report(y_test, y_pred)
+conf_mat = confusion_matrix(y_test, y_pred)
+
+"""-----------------------------INTERPRETATION----------------------------------"""
+#Got test set accuracy of 84.3%, same as the final accuracy in the training set.
