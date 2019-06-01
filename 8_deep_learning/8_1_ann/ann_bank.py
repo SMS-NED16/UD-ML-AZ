@@ -78,3 +78,13 @@ ann_classifier.add(
               activation='sigmoid',             # output layer so sigmoid activation function
               kernel_initializer='uniform',     # weights still init randomly
                 ))
+
+"""-------------------------------COMPILING ANN---------------------------------"""
+# Optimise the weights of the ANN using gradient descent - this is training in NN
+ann_classifier.compile(
+        optimizer='adam',                       # popular variant of SGD
+        loss="binary_crossentropy",             # logarithmic loss for bin classification                          
+        metrics=['accuracy'])
+
+
+"""---------------------------PREDICTING WITH ANN--------------------------------"""
