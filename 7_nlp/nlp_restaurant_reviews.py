@@ -85,7 +85,14 @@ word represents an independent variable. Helps us create a classification model.
 """
 # tokenizing the reviews - store counts of each unique word in all reviews
 from sklearn.feature_extraction.text import CountVectorizer
-count_vectorizer = CountVectorizer()
+
+# only store the most frequently occurring words in matrix of features 
+# reduces sparsity, improves model accuracy by selecting most relevant words.
+word_limit = 1500
+count_vectorizer = CountVectorizer(max_features=word_limit)
 
 # The matrix of tokenized word counts = classification model features
 X = count_vectorizer.fit_transform(corpus).toarray()
+
+# Store labels
+y = dataset['Liked'].values
