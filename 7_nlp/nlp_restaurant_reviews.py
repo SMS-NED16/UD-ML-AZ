@@ -75,7 +75,7 @@ for i in range(0, len(dataset)):
 """-----------------------------Bag of Words Model----------------------------"""
 """
 Create a new table with 1000 rows (one review per row) and columns are each unique
-word in corpus. Each cell represents how frequently a specific word in the corpus
+word in corpus. Each cell represents whether a specific word in the corpus
 appeared in a specific review. As every review won't necessarily contain all words,
 this will likely be a spares table - most cells will be 0. **Sparse Matrix**
 
