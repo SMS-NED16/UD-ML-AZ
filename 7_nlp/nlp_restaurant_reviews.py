@@ -15,7 +15,7 @@ import pandas as pd
 dataset = pd.read_csv('Restaurant_Reviews.tsv', sep="\t", quoting=3)
 
 
-"""---------------------------Cleaning the Texts------------------------------"""
+"""-------------------------Cleaning Text - One Review-------------------------"""
 """To maximise efficiency of our NLP algorithm and create a small, relevant bag of
 words, we will
 1. Remove all punctuation from reviews.
@@ -56,3 +56,18 @@ review = [port_stemmer.stem(word) for word in review]   # could also do this in 
 
 # Recombine words in review list into a string - words separated by space ' '
 review = ' '.join(review)               # 'wow love place'
+
+"""-------------------------Cleaning Text - All Reviews-------------------------"""
+# Using a for loop to clean and store all reviews in the dataset
+corpus = []                             # NLP term for a collection of text
+for i in range(0, len(dataset)):
+    review = re.sub('[^a-zA-Z]', ' ', dataset['Review'][i])
+    review = review.lower()
+    review = review.split()
+    ps = PorterStemmer()
+    review = [ps.stem(word) for word in review if not word in
+              set(stopwords.words('english'))]
+    review = ' '.join(review)
+    
+    # append cleaned review to corpus
+    corpus.append(review)
