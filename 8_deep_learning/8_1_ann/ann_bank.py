@@ -64,3 +64,9 @@ ann_classifier.add(
               activation='relu',                # rectified linear unit best for hidden
               input_dim=11,                     # 11 features so 11 inputs
               kernel_initializer='uniform'))    # params random init from uniform dist
+
+# Create a second hidden layer - no need to specify input count b/c knows O/Ps of prev layer
+ann_classifier.add(
+        Dense(units=6,                          
+              activation='relu',                
+              kernel_initializer='uniform'))    
