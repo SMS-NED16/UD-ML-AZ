@@ -59,6 +59,7 @@ ann_classifier = Sequential()                           # ANN Model
 # Add layers to the ANN. Because sequential, first layer obj = first layer added
 # Rule of thumb - num of nodes in a layer = avg(nodes in I/P layer, nodes in O/P layer)
 # Better approach - parameter tuning - cross validation
+# This is hidden layer. Input added implicitly.
 ann_classifier.add(
         Dense(units=6,                          # num of units in layer = avg of I/O layer units
               activation='relu',                # rectified linear unit best for hidden
@@ -70,3 +71,10 @@ ann_classifier.add(
         Dense(units=6,                          
               activation='relu',                
               kernel_initializer='uniform'))    
+
+# Create output layer
+ann_classifier.add(
+        Dense(units=1,                          # only one output (Y/N)
+              activation='sigmoid',             # output layer so sigmoid activation function
+              kernel_initializer='uniform',     # weights still init randomly
+                ))
