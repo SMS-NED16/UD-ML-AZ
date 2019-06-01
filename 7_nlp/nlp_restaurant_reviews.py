@@ -45,3 +45,11 @@ review = review.split()
 # List comprehension to remove any words in review also present in NLTK stopwords
 # `set` ensures that comparison is with unique stopwords only - improves algo speed.
 review = [word for word in review if not word in set(stopwords.words('english'))]
+
+# Stemming - store only the root of the word - `lovely`, `loved`, `loving` all stem from `love`
+# All versions of same word - not a sparse word mat - algo will be slow
+from nltk.stem.porter import PorterStemmer              # import required class
+port_stemmer = PorterStemmer()                          # instantiate Stemmer obj
+review = [port_stemmer.stem(word) for word in review]   # could also do this in prev list comprehension
+
+# `loved` in the previous list will now become `love` - root word
