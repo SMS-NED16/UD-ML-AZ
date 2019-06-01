@@ -80,11 +80,14 @@ ann_classifier.add(
                 ))
 
 """-------------------------------COMPILING ANN---------------------------------"""
-# Optimise the weights of the ANN using gradient descent - this is training in NN
+# Optimise the weights of the ANN using gradient descent
 ann_classifier.compile(
         optimizer='adam',                       # popular variant of SGD
         loss="binary_crossentropy",             # logarithmic loss for bin classification                          
         metrics=['accuracy'])
 
 
-"""---------------------------PREDICTING WITH ANN--------------------------------"""
+"""-------------------------------FIT ANN TO SET---------------------------------"""
+# So far the ANN has just been instantiated/set up for training. We now need
+# to fit it or optimise it parameters
+ann_classifier.fit(X_train, y_train, batch_size=10, nb_epoch=100)
