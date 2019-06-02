@@ -18,3 +18,18 @@ We want to improve the model performance of all ML models we have covered. The e
 - This is repeated for several iterations, with a different combination of testing and test folds for each iteration.
 - We then take the average of the accuracies predicted for the test folds of all iterations, and also calculate standard deviation to assess variance. 
 - This makes our analysis much more relevant as we will be minimising the variance associated with a single test set.
+
+## Grid Search
+- K-Fold was used to **evaluate** a model's performance more accurately.
+- However, it doesn't really do anything to improve the model performance.
+- If we want to improve the actual accuracy of the model, we must select the right hyperparameters i.e. parameters such as test size, kernel, penalty, regularization, etc. that are chosen, not trained.
+- Grid search will help us identify optimal values for the hyperparameters.
+
+## Choosing a Model
+- Is the problem a classification problem or a regression problem?
+	- Categorical Output: classification
+	- Continuous: regression
+- Is the problem's data linearly separable?
+	- Yes: Use a linear regression/classification model.
+	- No: Use a non-linear model such as SVM/Random Forests
+- Grid search can help us choose the best model for a given problem by answering these questions.
